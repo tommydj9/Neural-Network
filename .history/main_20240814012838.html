@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guida alle Neural Network</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #FAF3E0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 50px;
+        }
+
+        header {
+            background-color: #D35400;
+            color: #FFF;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #FFF5E1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #E67E22;
+        }
+
+        p,
+        ul {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        code {
+            display: block;
+            background-color: #F7E5D3;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        footer {
+            background-color: #D35400;
+            color: #FFF;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>Guida alle Neural Network</header>
+
+    <section>
+        <h2>Cosa sono le Neural Network?</h2>
+        <p>Le reti neurali artificiali (o Neural Network) sono modelli computazionali ispirati alla struttura e al
+            funzionamento del cervello umano. Proprio come il cervello è composto da miliardi di neuroni collegati tra
+            loro, le reti neurali artificiali sono costituite da numerosi nodi (o neuroni artificiali) interconnessi.
+            Ogni nodo prende un input, lo elabora, e produce un output, esattamente come un neurone biologico che riceve
+            segnali e invia impulsi nervosi.</p>
+        <p>Le reti neurali sono alla base del machine learning, in particolare del deep learning, e vengono utilizzate
+            per risolvere problemi complessi che richiedono un'analisi sofisticata dei dati. Sono in grado di apprendere
+            dai dati, riconoscere schemi, fare previsioni e prendere decisioni in modo autonomo.</p>
+
+        <h2>A cosa servono?</h2>
+        <p>Le reti neurali trovano applicazione in una vasta gamma di settori grazie alla loro capacità di analizzare
+            grandi quantità di dati e trovare relazioni complesse. Alcuni esempi includono:</p>
+        <ul>
+            <li><strong>Riconoscimento di Immagini</strong>: Le reti neurali possono identificare oggetti, persone o
+                scene all'interno di immagini. Un esempio comune è il sistema di riconoscimento facciale utilizzato nei
+                dispositivi mobili.</li>
+            <li><strong>Elaborazione del Linguaggio Naturale (NLP)</strong>: Le reti neurali possono comprendere e
+                generare testo in linguaggio naturale, permettendo lo sviluppo di assistenti vocali come Siri o Alexa, e
+                traduttori automatici.</li>
+            <li><strong>Previsioni Finanziarie</strong>: Le reti neurali vengono impiegate per analizzare i dati storici
+                dei mercati finanziari e prevedere i movimenti dei prezzi, aiutando investitori e istituzioni a prendere
+                decisioni informate.</li>
+            <li><strong>Veicoli Autonomi</strong>: Nei veicoli a guida autonoma, le reti neurali sono utilizzate per
+                interpretare le immagini delle telecamere, riconoscere segnali stradali, pedoni e altri veicoli, e
+                decidere le azioni da intraprendere in tempo reale.</li>
+            <li><strong>Medicina</strong>: Le reti neurali aiutano nella diagnosi medica, analizzando immagini come
+                radiografie e risonanze magnetiche per identificare malattie, oppure prevedendo l'insorgenza di
+                patologie basate su dati genetici.</li>
+        </ul>
+
+        <h2>Perché sono utili?</h2>
+        <p>Le reti neurali sono straordinariamente utili per diverse ragioni:</p>
+        <ul>
+            <li><strong>Capacità di Apprendimento</strong>: Una delle caratteristiche principali delle reti neurali è la
+                loro capacità di apprendere dai dati. Possono migliorare le proprie performance man mano che vengono
+                addestrate con più dati, rendendole strumenti potenti per affrontare problemi complessi.</li>
+            <li><strong>Riconoscimento di Schemi Complessi</strong>: A differenza degli algoritmi tradizionali, le reti
+                neurali sono in grado di riconoscere schemi molto complessi e non lineari nei dati. Questo le rende
+                ideali per applicazioni come il riconoscimento vocale e delle immagini.</li>
+            <li><strong>Generalizzazione</strong>: Una rete neurale ben addestrata può generalizzare, ovvero applicare
+                le conoscenze acquisite da un set di dati ad un altro set simile. Ciò significa che possono fare
+                previsioni o decisioni anche su dati che non hanno mai visto prima.</li>
+            <li><strong>Automatizzazione</strong>: Le reti neurali possono automatizzare processi che richiederebbero
+                un'enorme quantità di tempo e risorse umane, migliorando l'efficienza e riducendo i costi.</li>
+        </ul>
+
+        <h2>Spiegazione di Come si Utilizzano</h2>
+        <p>L'utilizzo di una rete neurale generalmente segue queste fasi:</p>
+        <ul>
+            <li><strong>Raccolta dei Dati</strong>: Prima di tutto, è necessario raccogliere un grande set di dati di
+                addestramento. Ad esempio, per una rete neurale che riconosce immagini di gatti, avrai bisogno di
+                migliaia di immagini etichettate come "gatto" e "non gatto".</li>
+            <li><strong>Preprocessing dei Dati</strong>: I dati grezzi spesso devono essere pre-processati per
+                migliorare la qualità dell'addestramento. Questo può includere la normalizzazione delle immagini, la
+                rimozione di rumore o la suddivisione dei dati in categorie.</li>
+            <li><strong>Definizione della Rete Neurale</strong>: La rete neurale deve essere progettata definendo il
+                numero di livelli (strati) e di nodi in ogni livello. Un modello comune è la rete neurale feedforward
+                con uno strato di input, uno o più strati nascosti, e uno strato di output.</li>
+            <li><strong>Addestramento</strong>: Durante l'addestramento, la rete viene alimentata con i dati di input, e
+                il suo output viene confrontato con i risultati attesi. Se l'output è errato, la rete utilizza algoritmi
+                come la retropropagazione (backpropagation) per aggiustare i pesi interni, migliorando le performance
+                future.</li>
+            <li><strong>Validazione</strong>: Dopo l'addestramento, la rete viene validata con un set di dati separato
+                per assicurarsi che non stia solo memorizzando i dati di addestramento, ma che possa generalizzare su
+                dati nuovi.</li>
+            <li><strong>Utilizzo in Produzione</strong>: Una volta che la rete è ben addestrata e validata, può essere
+                utilizzata in produzione per compiere il suo compito, come riconoscere oggetti nelle immagini o fare
+                previsioni finanziarie.</li>
+        </ul>
+
+        <h2>Spiegazione di Come si Fanno e si Programmano</h2>
+        <p>Creare e programmare una rete neurale richiede una buona comprensione della matematica di base e delle
+            tecniche di machine learning, ma vediamo un esempio semplice.</p>
+
+        <h3>Librerie Utilizzate</h3>
+        <p>Nella programmazione delle reti neurali si utilizzano comunemente librerie come TensorFlow, Keras o PyTorch.
+            Queste librerie forniscono strumenti predefiniti per costruire, addestrare e testare reti neurali.</p>
+
+        <h3>Definizione della Rete</h3>
+        <code>
+        from keras.models import Sequential<br>
+        from keras.layers import Dense<br><br>
+
+        # Definizione del modello<br>
+        model = Sequential()<br><br>
+
+        # Aggiunta del livello di input e primo livello nascosto<br>
+        model.add(Dense(units=64, activation='relu', input_dim=10))<br><br>
+
+        # Aggiunta del secondo livello nascosto<br>
+        model.add(Dense(units=64, activation='relu'))<br><br>
+
+        # Aggiunta del livello di output<br>
+        model.add(Dense(units=1, activation='sigmoid'))<br><br>
+
+        # Compilazione del modello<br>
+        model.compile(loss='binary_crossentropy',<br>
+                      optimizer='adam',<br>
+                      metrics=['accuracy'])<br><br>
+
+        # Addestramento del modello<br>
+        model.fit(X_train, y_train, epochs=10, batch_size=32)
+        </code>
+
+        <h3>Dettagli di Funzionamento</h3>
+        <p>Qui vi mostreremo cosa accade
+            dietro ai riflettori delle librerie, mostrando come veramente
+            funziona una rete neurale. Dopo le nozioni da noi fornite in precendenza dovreste essere in grado di
+            comprendere il codice che andrete a visionare.</p>
+        <code>
+        import numpy as np<br><br>
+
+        # Funzioni per l'attivazione<br>
+        def sigmoid(x):<br>
+            return 1 / (1 + np.exp(-x))<br><br>
+
+        def sigmoid_derivative(x):<br>
+            return x * (1 - x)<br><br>
+
+        # Stabilire la grandezza della neural network<br>
+        input_size = 2<br>
+        hidden_size = 2<br>
+        output_size = 2<br><br>
+
+        # Inizializzazione dei pesi dandoli dei numeri random<br>
+        weights_input_hidden = np.random.rand(input_size, hidden_size)<br>
+        weights_hidden_output = np.random.rand(hidden_size, output_size)<br><br>
+
+        # Inizializzazione dei bias dandoli dei numeri random<br>
+        bias_hidden = np.random.rand(hidden_size)<br>
+        bias_output = np.random.rand(hidden_size)<br><br>
+
+        # Funzione iniziale, in cui si vanno a dare dei valori inizialmente casuali all'hidden layer<br>
+        def forward_propagation(X):<br>
+            global weights_input_hidden, weights_hidden_output, bias_hidden, bias_output<br><br>
+
+            # Si danno i valori all'hidden layer, sommando il bias ad un nodo casulale della matrice dell'hidden layer precedentemente moltiplicato per un peso<br>
+            hidden_layer_input = np.dot(X, weights_input_hidden) + bias_hidden<br>
+            # Si attiva il nodo<br>
+            hidden_layer_output = sigmoid(hidden_layer_input)<br><br>
+
+            # Si danno i valori all'output layer, sommando il bias ad un nodo casulale della matrice dell'hidden layer precedentemente moltiplicato per un peso<br>
+            output_layer_input = np.dot(hidden_layer_output, weights_hidden_output) + bias_output<br>
+            # Si attiva il nodo<br>
+            output_layer_output = sigmoid(output_layer_input)<br><br>
+
+            return hidden_layer_output, output_layer_output<br><br>
+
+        # Si verificano gli errori commessi nella forward propagation<br>
+        def backward_propagation(X, y, hidden_layer_output, output_layer_output, learning_rate):<br>
+            global weights_input_hidden, weights_hidden_output, bias_hidden, bias_output<br><br>
+
+            # Si calcola l'errore: y = valore aspettato - quello restituito<br>
+            error = y - output_layer_output<br>
+            # L'errore viene trasmesso a tutti i nodi, modificandoli<br>
+            d_output = error * sigmoid_derivative(output_layer_output)<br><br>
+
+            # Calcola l'errore che si è trasmesso dall'ouotput all'hidden layer<br>
+            error_hidden_layer = d_output.dot(weights_hidden_output.T)<br>
+            # Lo trasmette in tutta la rete<br>
+            d_hidden_layer = error_hidden_layer * sigmoid_derivative(hidden_layer_output)<br><br>
+
+            # Il gradiente calcolato (d_hidden_layer) ci dice come modificare i pesi tra l'input e lo strato nascosto per ridurre l'errore.<br>
+            # Se il gradiente è positivo, significa che aumentando i pesi aumenta anche l'errore, quindi i pesi devono essere ridotti.<br>
+            # Se il gradiente è negativo, significa che aumentando i pesi riduce l'errore, quindi i pesi devono essere aumentati.<br><br>
+
+            # Aggiorna i pesi e bias utilizzando la discesa del gradiente<br>
+            weights_hidden_output += hidden_layer_output.T.dot(d_output) * learning_rate<br>
+            weights_input_hidden += X.T.dot(d_hidden_layer) * learning_rate<br>
+            bias_output += np.sum(d_output, axis=0) * learning_rate<br>
+            bias_hidden += np.sum(d_hidden_layer, axis=0) * learning_rate<br><br>
+
+        # Addestramento della rete neurale<br>
+        def train(X, y, learning_rate, epochs):<br>
+            for epoch in range(epochs):<br>
+                # Propagazione in avanti<br>
+                hidden_layer_output, output_layer_output = forward_propagation(X)<br><br>
+
+                # Propagazione all'indietro e aggiornamento dei pesi<br>
+                backward_propagation(X, y, hidden_layer_output, output_layer_output, learning_rate)<br><br>
+
+                # Stampa l'errore ogni 1000 epoche<br>
+                if (epoch + 1) % 1000 == 0:<br>
+                    loss = np.mean(np.square(y - output_layer_output))<br>
+                    print(f'Epoca {epoch + 1}/{epochs}, Errore: {loss:.4f}')<br><br>
+
+        # Esempio di utilizzo<br>
+        if __name__ == "__main__":<br>
+            # Dati di addestramento (XOR)<br>
+            X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])<br>
+            y = np.array([[0], [1], [1], [0]])<br><br>
+
+            # Addestramento<br>
+            train(X, y, learning_rate=0.1, epochs=10000)<br><br>
+
+            # Test della rete neurale<br>
+            hidden_output, final_output = forward_propagation(X)<br>
+            print("Output finale della rete neurale:")<br>
+            print(final_output)<br><br>
+        </code>
+
+        <h3>Considerazioni Finali</h3>
+        <p>Il codice sopra descritto è un esempio semplificato di una rete neurale in Python. Le librerie come Keras
+            o
+            PyTorch facilitano molto la creazione e l'addestramento delle reti neurali, ma comprendere i concetti di
+            base è fondamentale per sviluppare soluzioni personalizzate. Per applicazioni reali, è importante
+            lavorare
+            con dataset più ampi, ottimizzare i parametri della rete e utilizzare tecniche avanzate come il dropout
+            o la
+            normalizzazione batch per migliorare le performance.</p>
+    </section>
+
+    <footer>
+        &copy; 2024 Guida alle Neural Network. Tutti i diritti riservati.
+    </footer>
+
+</body>
+
+</html>
